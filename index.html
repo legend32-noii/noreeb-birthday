@@ -1,0 +1,248 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Noreeb. — A little something for you</title>
+<style>
+:root {
+  --wine: #24121b;
+  --rose: #d4a0b0;
+  --cream: #f3e9e6;
+  --muted: #c5aeb6;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--wine);
+  color: var(--cream);
+  font-family: Georgia, "Times New Roman", serif;
+}
+.page {
+  display: none;
+  min-height: 100vh;
+  padding: 30px 22px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  animation: appear .8s ease;
+}
+.page.active { display: flex; }
+@keyframes appear {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.kicker {
+  color: var(--rose);
+  font: 10px Arial, sans-serif;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+h1 {
+  font-size: clamp(48px, 12vw, 86px);
+  font-weight: normal;
+  margin: 25px 0;
+  letter-spacing: -3px;
+}
+h2 {
+  font-size: clamp(30px, 7vw, 48px);
+  font-weight: normal;
+  line-height: 1.2;
+}
+p {
+  max-width: 480px;
+  line-height: 1.9;
+  color: #e0cdd3;
+  font-size: 16px;
+}
+.line {
+  height: 1px;
+  width: 48px;
+  background: var(--rose);
+  margin: 20px auto;
+}
+button {
+  margin: 12px 5px 0;
+  border: 1px solid #a87589;
+  background: transparent;
+  color: var(--cream);
+  padding: 14px 23px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: .3s;
+}
+button:hover {
+  background: #4b2738;
+}
+.timer {
+  display: flex;
+  gap: 18px;
+  margin: 25px 0;
+}
+.timer strong {
+  display: block;
+  font-size: 30px;
+  font-weight: normal;
+  color: var(--rose);
+}
+.timer span {
+  font: 9px Arial, sans-serif;
+  letter-spacing: 2px;
+  color: var(--muted);
+}
+.memory {
+  width: min(100%, 460px);
+  border: 1px solid #674050;
+  padding: 28px 23px;
+  margin: 12px 0;
+  text-align: left;
+  background: #2b1722;
+}
+.memory small {
+  color: var(--rose);
+  letter-spacing: 2px;
+  font: 10px Arial, sans-serif;
+}
+.memory h3 {
+  font-size: 25px;
+  font-weight: normal;
+}
+footer {
+  position: fixed;
+  bottom: 12px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: #9c7c89;
+  font: 9px Arial, sans-serif;
+  letter-spacing: 2px;
+  pointer-events: none;
+}
+</style>
+</head>
+<body>
+
+<section class="page active" id="p0">
+  <div class="kicker">A little world, made for you</div>
+  <h1>Noreeb.</h1>
+  <div class="line"></div>
+  <p>Some people become a special part of our story without even knowing it.</p>
+  <p class="kicker">Something is waiting for you</p>
+  <div class="timer">
+    <div><strong id="hh">00</strong><span>HOURS</span></div>
+    <div><strong id="mm">00</strong><span>MINUTES</span></div>
+    <div><strong id="ss">00</strong><span>SECONDS</span></div>
+  </div>
+  <button onclick="next()">Enter your surprise ↗</button>
+  <p style="font-size:11px">A little surprise, just for you.</p>
+</section>
+
+<section class="page" id="p1">
+  <div class="kicker">Before anything else</div>
+  <h2>Noreeb,<br>tumhein pata hai aaj kya din hai?</h2>
+  <div class="line"></div>
+  <p>Aaj us insaan ka din hai jiski presence ne meri life mein kuch achhi memories add ki hain.</p>
+  <button onclick="next()">I think I know →</button>
+</section>
+
+<section class="page" id="p2">
+  <div class="kicker">It's your day</div>
+  <h1 style="font-size:clamp(42px,10vw,70px)">Happy Birthday.</h1>
+  <h2>Noor Fatima</h2>
+  <div class="line"></div>
+  <p>I hope this new chapter of your life brings you peace, happiness, good people, and countless reasons to smile.</p>
+  <button onclick="next()">A few things I remember →</button>
+</section>
+
+<section class="page" id="p3">
+  <div class="kicker">Chapter 04 · Our little archive</div>
+  <h2>The little things<br>that stayed.</h2>
+  <div class="memory">
+    <small>01 / THE CONVERSATIONS</small>
+    <h3>Ordinary days, special memories.</h3>
+    <p>Funny how conversations that feel so normal in the moment can become memories you look back on with a smile.</p>
+  </div>
+  <div class="memory">
+    <small>02 / THE LAUGHTER</small>
+    <h3>The moments that felt easy.</h3>
+    <p>Not every memory needs a photograph. Some are simply the feeling of laughing, talking, and being yourself.</p>
+  </div>
+  <button onclick="next()">One thing I want you to know →</button>
+</section>
+
+<section class="page" id="p4">
+  <div class="kicker">Chapter 05 · What you meant</div>
+  <h2>You were there<br>in your own way.</h2>
+  <div class="line"></div>
+  <p>Sometimes, just having someone to talk to makes a bigger difference than they realise.</p>
+  <p>I'm grateful for the moments when your presence made things feel a little lighter. Maybe you didn't even know how much those moments meant to me.</p>
+  <button onclick="next()">Something I've been meaning to say →</button>
+</section>
+
+<section class="page" id="p5">
+  <div class="kicker">Chapter 06 · Unsaid</div>
+  <h2>Some things are easier to feel than to say.</h2>
+  <div class="line"></div>
+  <p>Life gets busy, days pass, and somehow the little conversations that once felt so normal become the ones you miss the most.</p>
+  <p><em>I miss talking to you more than I know how to say.</em></p>
+  <p>No pressure, no expectations. I just hope life gives us more of those little moments again someday.</p>
+  <button onclick="next()">A memory from the beginning →</button>
+</section>
+
+<section class="page" id="p6">
+  <div class="kicker">Chapter 07 · The first call</div>
+  <h2>A little memory<br>from the beginning.</h2>
+  <div class="line"></div>
+  <p>It's funny how one small moment can become something you remember for a long time.</p>
+  <p>Our first call is one of those memories for me. Nothing needs to be extraordinary to become special; sometimes, it just matters because it was ours.</p>
+  <button onclick="next()">One last thing 💌</button>
+</section>
+
+<section class="page" id="p7">
+  <div class="kicker">Chapter 08 · Just for you</div>
+  <h2>A little letter,<br>from me to you.</h2>
+  <div class="line"></div>
+  <p>Dear Noreeb,</p>
+  <p>Happy birthday to you. I hope you always find reasons to be proud of yourself, people who genuinely care about you, and places where you can feel completely at peace.</p>
+  <p>Thank you for the memories, the conversations, and the moments that became special without even trying.</p>
+  <p>I hope this year is kind to you. And whatever life brings, I hope you never forget that your presence has meant something good to someone.</p>
+  <p style="color:var(--rose)">Happy Birthday, Noreeb. ♡</p>
+  <button onclick="showPage(0)">Back to the beginning ↺</button>
+</section>
+
+<footer id="foot">MADE WITH CARE · FOR NOREEB</footer>
+
+<script>
+let current = 0;
+const pages = document.querySelectorAll(".page");
+
+function showPage(n) {
+  pages[current].classList.remove("active");
+  current = n;
+  pages[current].classList.add("active");
+  window.scrollTo(0, 0);
+}
+function next() {
+  if (current < pages.length - 1) showPage(current + 1);
+}
+function updateTimer() {
+  const now = new Date();
+  const target = new Date(now);
+  target.setHours(24, 0, 0, 0);
+  const seconds = Math.max(0, Math.floor((target - now) / 1000));
+  document.getElementById("hh").textContent =
+    String(Math.floor(seconds / 3600)).padStart(2, "0");
+  document.getElementById("mm").textContent =
+    String(Math.floor((seconds % 3600) / 60)).padStart(2, "0");
+  document.getElementById("ss").textContent =
+    String(seconds % 60).padStart(2, "0");
+}
+updateTimer();
+setInterval(updateTimer, 1000);
+</script>
+</body>
+</html>
